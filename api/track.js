@@ -1,4 +1,4 @@
-import { record, enabled } from "../lib/analytics.js";
+import { record, enabled, connectionInfo } from "../lib/analytics.js";
 import { isAdmin } from "../lib/auth.js";
 import { readJson, sameOrigin, fail } from "../lib/http.js";
 
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       await record(req, body);
     }
   } catch (e) {
-    console.error("track", e.message);
+    console.error("track", e.code || "", e.message, JSON.stringify(connectionInfo()));
   }
   res.statusCode = 204;
   res.setHeader("Cache-Control", "no-store");

@@ -1,4 +1,4 @@
-import { getStats, enabled } from "../lib/analytics.js";
+import { getStats, enabled, connectionInfo } from "../lib/analytics.js";
 import { send, fail, requireAdmin } from "../lib/http.js";
 
 export default async function handler(req, res) {
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   try {
     return send(res, 200, await getStats(days));
   } catch (e) {
-    console.error(e);
-    return fail(res, 500, "No se pudieron cargar las estadísticas. Revisa la conexión con Turso.");
+    console.error("estadisticas", e.code || "", e.message, JSON.stringify(connectionInfo()));
+    return fail(res, 500, `No se pudieron cargar las estadísticas (${e.code || "error"}: ${e.message}). Revisa la URL y el token de Turso en Vercel.`);
   }
 }

@@ -1,0 +1,1259 @@
+{
+ "categorias": [
+  "Gobernación y portales",
+  "Hacienda y finanzas",
+  "Salud",
+  "Educación",
+  "Seguridad y emergencias",
+  "Justicia y tribunales",
+  "Transporte y vehículos",
+  "Trabajo y desarrollo económico",
+  "Familia y servicios sociales",
+  "Vivienda, permisos y planificación",
+  "Energía, agua e infraestructura",
+  "Ambiente y agricultura",
+  "Cultura, deportes y turismo",
+  "Legislatura y entidades independientes",
+  "Municipios"
+ ],
+ "regiones": [
+  "Metro",
+  "Norte",
+  "Oeste",
+  "Sur",
+  "Este",
+  "Centro"
+ ],
+ "enlaces": [
+  {
+   "id": "pr-gov",
+   "n": "Portal oficial del Gobierno",
+   "s": "PR.GOV",
+   "u": "https://www.pr.gov",
+   "c": "Gobernación y portales",
+   "t": "servicios en linea tramites certificados gobierno"
+  },
+  {
+   "id": "fort",
+   "n": "La Fortaleza – Oficina del Gobernador",
+   "s": "FORT",
+   "u": "https://www.fortaleza.pr.gov",
+   "c": "Gobernación y portales",
+   "t": "gobernadora gobernador ordenes ejecutivas"
+  },
+  {
+   "id": "prits",
+   "n": "Puerto Rico Innovation & Technology Service",
+   "s": "PRITS",
+   "u": "https://www.prits.pr.gov",
+   "c": "Gobernación y portales",
+   "t": "tecnologia innovacion digital"
+  },
+  {
+   "id": "de",
+   "n": "Departamento de Estado",
+   "s": "DE",
+   "u": "https://www.estado.pr.gov",
+   "c": "Gobernación y portales",
+   "t": "registro de corporaciones negocios apostilla notarios"
+  },
+  {
+   "id": "ogp",
+   "n": "Oficina de Gerencia y Presupuesto",
+   "s": "OGP",
+   "u": "https://www.ogp.pr.gov",
+   "c": "Gobernación y portales",
+   "t": "presupuesto"
+  },
+  {
+   "id": "cor3",
+   "n": "Oficina Central de Recuperación",
+   "s": "COR3",
+   "u": "https://recovery.pr.gov",
+   "c": "Gobernación y portales",
+   "t": "huracan maria fema reconstruccion"
+  },
+  {
+   "id": "iepr",
+   "n": "Instituto de Estadísticas",
+   "s": "IEPR",
+   "u": "https://estadisticas.pr",
+   "c": "Gobernación y portales",
+   "t": "datos censo estadisticas"
+  },
+  {
+   "id": "hac",
+   "n": "Departamento de Hacienda",
+   "s": "HAC",
+   "u": "https://www.hacienda.pr.gov",
+   "c": "Hacienda y finanzas",
+   "t": "contribuciones impuestos ivu reintegro"
+  },
+  {
+   "id": "suri",
+   "n": "SURI – Sistema Unificado de Rentas Internas",
+   "s": "SURI",
+   "u": "https://suri.hacienda.pr.gov",
+   "c": "Hacienda y finanzas",
+   "t": "planilla contribucion sobre ingresos ivu comerciante reintegro"
+  },
+  {
+   "id": "crim",
+   "n": "Centro de Recaudación de Ingresos Municipales",
+   "s": "CRIM",
+   "u": "https://www.crimpr.net",
+   "c": "Hacienda y finanzas",
+   "t": "propiedad inmueble mueble catastro"
+  },
+  {
+   "id": "aafaf",
+   "n": "Autoridad de Asesoría Financiera y Agencia Fiscal",
+   "s": "AAFAF",
+   "u": "https://www.aafaf.pr.gov",
+   "c": "Hacienda y finanzas",
+   "t": "deuda bonos fiscal"
+  },
+  {
+   "id": "jsf",
+   "n": "Junta de Supervisión Fiscal",
+   "s": "JSF",
+   "u": "https://oversightboard.pr.gov",
+   "c": "Hacienda y finanzas",
+   "t": "promesa plan fiscal"
+  },
+  {
+   "id": "bde",
+   "n": "Banco de Desarrollo Económico",
+   "s": "BDE",
+   "u": "https://www.bde.pr.gov",
+   "c": "Hacienda y finanzas",
+   "t": "prestamos pymes financiamiento"
+  },
+  {
+   "id": "retiro",
+   "n": "Sistema de Retiro – Junta de Retiro",
+   "s": "RETIRO",
+   "u": "https://www.retiro.pr.gov",
+   "c": "Hacienda y finanzas",
+   "t": "pension jubilacion empleados publicos"
+  },
+  {
+   "id": "salud",
+   "n": "Departamento de Salud",
+   "s": "SALUD",
+   "u": "https://www.salud.pr.gov",
+   "c": "Salud",
+   "t": "certificado de nacimiento registro demografico vacunas"
+  },
+  {
+   "id": "ases",
+   "n": "Administración de Seguros de Salud (Vital)",
+   "s": "ASES",
+   "u": "https://www.ases.pr.gov",
+   "c": "Salud",
+   "t": "plan vital medicaid reforma"
+  },
+  {
+   "id": "assmca",
+   "n": "Admin. de Servicios de Salud Mental y Contra la Adicción",
+   "s": "ASSMCA",
+   "u": "https://www.assmca.pr.gov",
+   "c": "Salud",
+   "t": "salud mental linea pas adiccion"
+  },
+  {
+   "id": "icf",
+   "n": "Instituto de Ciencias Forenses",
+   "s": "ICF",
+   "u": "https://icf.pr.gov",
+   "c": "Salud",
+   "t": "forense"
+  },
+  {
+   "id": "cfse",
+   "n": "Corporación del Fondo del Seguro del Estado",
+   "s": "CFSE",
+   "u": "https://www.cfse.gov.pr",
+   "c": "Salud",
+   "t": "accidente laboral fondo"
+  },
+  {
+   "id": "de-ed",
+   "n": "Departamento de Educación",
+   "s": "DE-ED",
+   "u": "https://www.de.pr.gov",
+   "c": "Educación",
+   "t": "escuelas maestros matricula"
+  },
+  {
+   "id": "upr",
+   "n": "Universidad de Puerto Rico",
+   "s": "UPR",
+   "u": "https://www.upr.edu",
+   "c": "Educación",
+   "t": "universidad admisiones"
+  },
+  {
+   "id": "dsp",
+   "n": "Departamento de Seguridad Pública",
+   "s": "DSP",
+   "u": "https://dsp.pr.gov",
+   "c": "Seguridad y emergencias",
+   "t": "seguridad"
+  },
+  {
+   "id": "nppr",
+   "n": "Negociado de la Policía",
+   "s": "NPPR",
+   "u": "https://policia.pr.gov",
+   "c": "Seguridad y emergencias",
+   "t": "certificado de antecedentes penales buena conducta querella"
+  },
+  {
+   "id": "ncbpr",
+   "n": "Negociado del Cuerpo de Bomberos",
+   "s": "NCBPR",
+   "u": "https://bomberos.pr.gov",
+   "c": "Seguridad y emergencias",
+   "t": "incendio permiso de prevencion"
+  },
+  {
+   "id": "nmead",
+   "n": "Negociado para el Manejo de Emergencias",
+   "s": "NMEAD",
+   "u": "https://manejodeemergencias.pr.gov",
+   "c": "Seguridad y emergencias",
+   "t": "huracan alerta desastre refugios"
+  },
+  {
+   "id": "dj",
+   "n": "Departamento de Justicia",
+   "s": "DJ",
+   "u": "https://www.justicia.pr.gov",
+   "c": "Justicia y tribunales",
+   "t": "fiscalia registro de ofensores sexuales"
+  },
+  {
+   "id": "rj",
+   "n": "Rama Judicial – Poder Judicial",
+   "s": "RJ",
+   "u": "https://poderjudicial.pr",
+   "c": "Justicia y tribunales",
+   "t": "tribunales casos sentencias"
+  },
+  {
+   "id": "dcr",
+   "n": "Departamento de Corrección y Rehabilitación",
+   "s": "DCR",
+   "u": "https://dcr.pr.gov",
+   "c": "Justicia y tribunales",
+   "t": "carcel confinados"
+  },
+  {
+   "id": "oig",
+   "n": "Oficina del Inspector General",
+   "s": "OIG",
+   "u": "https://www.oig.pr.gov",
+   "c": "Justicia y tribunales",
+   "t": "fiscalizacion auditoria"
+  },
+  {
+   "id": "dtop",
+   "n": "Depto. de Transportación y Obras Públicas",
+   "s": "DTOP",
+   "u": "https://www.dtop.pr.gov",
+   "c": "Transporte y vehículos",
+   "t": "cesco licencia de conducir marbete tablilla"
+  },
+  {
+   "id": "act",
+   "n": "Autoridad de Carreteras y Transportación",
+   "s": "ACT",
+   "u": "https://act.dtop.pr.gov",
+   "c": "Transporte y vehículos",
+   "t": "carreteras autopista peaje autoexpreso"
+  },
+  {
+   "id": "ap",
+   "n": "Autoridad de los Puertos",
+   "s": "AP",
+   "u": "https://www.prpa.pr.gov",
+   "c": "Transporte y vehículos",
+   "t": "aeropuerto muelles"
+  },
+  {
+   "id": "acaa",
+   "n": "Admin. de Compensaciones por Accidentes de Automóviles",
+   "s": "ACAA",
+   "u": "https://www.acaa.pr.gov",
+   "c": "Transporte y vehículos",
+   "t": "accidente auto seguro"
+  },
+  {
+   "id": "csp",
+   "n": "Comisión de Servicio Público",
+   "s": "CSP",
+   "u": "https://csp.pr.gov",
+   "c": "Transporte y vehículos",
+   "t": "taxis transporte publico"
+  },
+  {
+   "id": "dtrh",
+   "n": "Departamento del Trabajo y Recursos Humanos",
+   "s": "DTRH",
+   "u": "https://www.trabajo.pr.gov",
+   "c": "Trabajo y desarrollo económico",
+   "t": "desempleo empleo seguro por incapacidad"
+  },
+  {
+   "id": "empleos",
+   "n": "Empleos PR – Portal de empleos del Gobierno",
+   "s": "EMPLEOS",
+   "u": "https://empleos.pr.gov",
+   "c": "Trabajo y desarrollo económico",
+   "t": "empleo trabajo plazas convocatorias reclutamiento gobierno"
+  },
+  {
+   "id": "ddec",
+   "n": "Depto. de Desarrollo Económico y Comercio",
+   "s": "DDEC",
+   "u": "https://www.ddec.pr.gov",
+   "c": "Trabajo y desarrollo económico",
+   "t": "incentivos ley 60 empresas"
+  },
+  {
+   "id": "daco",
+   "n": "Departamento de Asuntos del Consumidor",
+   "s": "DACO",
+   "u": "https://www.daco.pr.gov",
+   "c": "Trabajo y desarrollo económico",
+   "t": "querella consumidor precios"
+  },
+  {
+   "id": "ci",
+   "n": "Comisión Industrial",
+   "s": "CI",
+   "u": "https://ci.pr.gov",
+   "c": "Trabajo y desarrollo económico",
+   "t": "obreros apelaciones fondo"
+  },
+  {
+   "id": "fam",
+   "n": "Departamento de la Familia",
+   "s": "FAM",
+   "u": "https://www.familia.pr.gov",
+   "c": "Familia y servicios sociales",
+   "t": "maltrato menores adopcion"
+  },
+  {
+   "id": "adsef",
+   "n": "Admin. de Desarrollo Socioeconómico de la Familia",
+   "s": "ADSEF",
+   "u": "https://www.adsef.pr.gov",
+   "c": "Familia y servicios sociales",
+   "t": "pan tanf asistencia nutricional"
+  },
+  {
+   "id": "asume",
+   "n": "Administración para el Sustento de Menores",
+   "s": "ASUME",
+   "u": "https://www.asume.pr.gov",
+   "c": "Familia y servicios sociales",
+   "t": "pension alimentaria"
+  },
+  {
+   "id": "opm",
+   "n": "Oficina de la Procuradora de las Mujeres",
+   "s": "OPM",
+   "u": "https://www.mujer.pr.gov",
+   "c": "Familia y servicios sociales",
+   "t": "violencia domestica"
+  },
+  {
+   "id": "oppea",
+   "n": "Oficina del Procurador de las Personas de Edad Avanzada",
+   "s": "OPPEA",
+   "u": "https://www.oppea.pr.gov",
+   "c": "Familia y servicios sociales",
+   "t": "envejecientes adultos mayores"
+  },
+  {
+   "id": "dpi",
+   "n": "Defensoría de las Personas con Impedimentos",
+   "s": "DPI",
+   "u": "https://www.dpi.pr.gov",
+   "c": "Familia y servicios sociales",
+   "t": "discapacidad"
+  },
+  {
+   "id": "viv",
+   "n": "Departamento de la Vivienda",
+   "s": "VIV",
+   "u": "https://www.vivienda.pr.gov",
+   "c": "Vivienda, permisos y planificación",
+   "t": "vivienda publica seccion 8"
+  },
+  {
+   "id": "cdbg",
+   "n": "CDBG-DR – Recuperación de vivienda",
+   "s": "CDBG",
+   "u": "https://cdbg-dr.pr.gov",
+   "c": "Vivienda, permisos y planificación",
+   "t": "rehabilitacion huracan fondos federales"
+  },
+  {
+   "id": "afv",
+   "n": "Autoridad para el Financiamiento de la Vivienda",
+   "s": "AFV",
+   "u": "https://www.afv.pr.gov",
+   "c": "Vivienda, permisos y planificación",
+   "t": "hipoteca mi casa propia"
+  },
+  {
+   "id": "ogpe",
+   "n": "Oficina de Gerencia de Permisos",
+   "s": "OGPe",
+   "u": "https://ogpe.pr.gov",
+   "c": "Vivienda, permisos y planificación",
+   "t": "permiso de uso construccion"
+  },
+  {
+   "id": "sbp",
+   "n": "Single Business Portal",
+   "s": "SBP",
+   "u": "https://sbp.pr.gov",
+   "c": "Vivienda, permisos y planificación",
+   "t": "permiso unico negocios licencia"
+  },
+  {
+   "id": "jp",
+   "n": "Junta de Planificación",
+   "s": "JP",
+   "u": "https://jp.pr.gov",
+   "c": "Vivienda, permisos y planificación",
+   "t": "zonificacion mapas"
+  },
+  {
+   "id": "luma",
+   "n": "LUMA Energy – Servicio eléctrico",
+   "s": "LUMA",
+   "u": "https://lumapr.com",
+   "c": "Energía, agua e infraestructura",
+   "t": "luz electricidad averias apagon factura cuenta"
+  },
+  {
+   "id": "aee",
+   "n": "Autoridad de Energía Eléctrica",
+   "s": "AEE",
+   "u": "https://aeepr.com",
+   "c": "Energía, agua e infraestructura",
+   "t": "luz electricidad generacion"
+  },
+  {
+   "id": "nepr",
+   "n": "Negociado de Energía",
+   "s": "NEPR",
+   "u": "https://energia.pr.gov",
+   "c": "Energía, agua e infraestructura",
+   "t": "tarifas querella luz"
+  },
+  {
+   "id": "aaa",
+   "n": "Autoridad de Acueductos y Alcantarillados",
+   "s": "AAA",
+   "u": "https://www.acueductospr.com",
+   "c": "Energía, agua e infraestructura",
+   "t": "agua factura interrupciones"
+  },
+  {
+   "id": "drna",
+   "n": "Depto. de Recursos Naturales y Ambientales",
+   "s": "DRNA",
+   "u": "https://www.drna.pr.gov",
+   "c": "Ambiente y agricultura",
+   "t": "licencia de pesca caza bosques playas"
+  },
+  {
+   "id": "agri",
+   "n": "Departamento de Agricultura",
+   "s": "AGRI",
+   "u": "https://www.agricultura.pr.gov",
+   "c": "Ambiente y agricultura",
+   "t": "agricultores bona fide"
+  },
+  {
+   "id": "icp",
+   "n": "Instituto de Cultura Puertorriqueña",
+   "s": "ICP",
+   "u": "https://www.icp.pr.gov",
+   "c": "Cultura, deportes y turismo",
+   "t": "arte archivo general museos"
+  },
+  {
+   "id": "drd",
+   "n": "Departamento de Recreación y Deportes",
+   "s": "DRD",
+   "u": "https://www.drd.pr.gov",
+   "c": "Cultura, deportes y turismo",
+   "t": "parques deportes"
+  },
+  {
+   "id": "dmo",
+   "n": "Discover Puerto Rico",
+   "s": "DMO",
+   "u": "https://www.discoverpuertorico.com",
+   "c": "Cultura, deportes y turismo",
+   "t": "turismo visitantes"
+  },
+  {
+   "id": "wipr",
+   "n": "Corporación para la Difusión Pública (WIPR)",
+   "s": "WIPR",
+   "u": "https://wipr.pr",
+   "c": "Cultura, deportes y turismo",
+   "t": "television radio publica"
+  },
+  {
+   "id": "camara",
+   "n": "Cámara de Representantes",
+   "s": "CÁMARA",
+   "u": "https://www.camara.pr.gov",
+   "c": "Legislatura y entidades independientes",
+   "t": "leyes proyectos legislatura"
+  },
+  {
+   "id": "senado",
+   "n": "Senado de Puerto Rico",
+   "s": "SENADO",
+   "u": "https://senado.pr.gov",
+   "c": "Legislatura y entidades independientes",
+   "t": "leyes proyectos legislatura"
+  },
+  {
+   "id": "ocpr",
+   "n": "Oficina del Contralor",
+   "s": "OCPR",
+   "u": "https://www.ocpr.gov.pr",
+   "c": "Legislatura y entidades independientes",
+   "t": "auditorias contratos"
+  },
+  {
+   "id": "cee",
+   "n": "Comisión Estatal de Elecciones",
+   "s": "CEE",
+   "u": "https://ww2.ceepur.org",
+   "c": "Legislatura y entidades independientes",
+   "t": "votar inscripcion electoral tarjeta"
+  },
+  {
+   "id": "opc",
+   "n": "Oficina del Procurador del Ciudadano",
+   "s": "OPC",
+   "u": "https://www.ombudsman.pr.gov",
+   "c": "Legislatura y entidades independientes",
+   "t": "ombudsman quejas"
+  },
+  {
+   "id": "mun-san-juan",
+   "n": "Municipio de San Juan",
+   "s": "MUN",
+   "u": "https://sanjuan.pr/",
+   "c": "Municipios",
+   "r": "Metro",
+   "t": "alcaldia pueblo municipio San Juan"
+  },
+  {
+   "id": "mun-bayamon",
+   "n": "Municipio de Bayamón",
+   "s": "MUN",
+   "u": "https://www.municipiodebayamon.com/",
+   "c": "Municipios",
+   "r": "Metro",
+   "t": "alcaldia pueblo municipio Bayamón"
+  },
+  {
+   "id": "mun-carolina",
+   "n": "Municipio de Carolina",
+   "s": "MUN",
+   "u": "https://www.municipiocarolina.com/",
+   "c": "Municipios",
+   "r": "Metro",
+   "t": "alcaldia pueblo municipio Carolina"
+  },
+  {
+   "id": "mun-guaynabo",
+   "n": "Municipio de Guaynabo",
+   "s": "MUN",
+   "u": "https://www.guaynabocity.gov.pr/",
+   "c": "Municipios",
+   "r": "Metro",
+   "t": "alcaldia pueblo municipio Guaynabo"
+  },
+  {
+   "id": "mun-catano",
+   "n": "Municipio de Cataño",
+   "s": "MUN",
+   "u": "https://catano.pr.gov/",
+   "c": "Municipios",
+   "r": "Metro",
+   "t": "alcaldia pueblo municipio Cataño"
+  },
+  {
+   "id": "mun-trujillo-alto",
+   "n": "Municipio de Trujillo Alto",
+   "s": "MUN",
+   "u": "https://www.municipiodetrujilloalto.com/",
+   "c": "Municipios",
+   "r": "Metro",
+   "t": "alcaldia pueblo municipio Trujillo Alto"
+  },
+  {
+   "id": "mun-toa-baja",
+   "n": "Municipio de Toa Baja",
+   "s": "MUN",
+   "u": "https://toabaja.com/",
+   "c": "Municipios",
+   "r": "Metro",
+   "t": "alcaldia pueblo municipio Toa Baja"
+  },
+  {
+   "id": "mun-toa-alta",
+   "n": "Municipio de Toa Alta",
+   "s": "MUN",
+   "u": "https://agencias.pr.gov/municipio/toaalta/Pages/default.aspx",
+   "c": "Municipios",
+   "r": "Metro",
+   "t": "alcaldia pueblo municipio Toa Alta"
+  },
+  {
+   "id": "mun-dorado",
+   "n": "Municipio de Dorado",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/dorado",
+   "c": "Municipios",
+   "r": "Norte",
+   "t": "alcaldia pueblo municipio Dorado"
+  },
+  {
+   "id": "mun-vega-alta",
+   "n": "Municipio de Vega Alta",
+   "s": "MUN",
+   "u": "https://www.vegaalta.pr.gov/",
+   "c": "Municipios",
+   "r": "Norte",
+   "t": "alcaldia pueblo municipio Vega Alta"
+  },
+  {
+   "id": "mun-vega-baja",
+   "n": "Municipio de Vega Baja",
+   "s": "MUN",
+   "u": "http://www.vegabaja.gov.pr/",
+   "c": "Municipios",
+   "r": "Norte",
+   "t": "alcaldia pueblo municipio Vega Baja"
+  },
+  {
+   "id": "mun-manati",
+   "n": "Municipio de Manatí",
+   "s": "MUN",
+   "u": "https://www.manati.pr/",
+   "c": "Municipios",
+   "r": "Norte",
+   "t": "alcaldia pueblo municipio Manatí"
+  },
+  {
+   "id": "mun-barceloneta",
+   "n": "Municipio de Barceloneta",
+   "s": "MUN",
+   "u": "https://barceloneta.pr.gov/",
+   "c": "Municipios",
+   "r": "Norte",
+   "t": "alcaldia pueblo municipio Barceloneta"
+  },
+  {
+   "id": "mun-florida",
+   "n": "Municipio de Florida",
+   "s": "MUN",
+   "u": "https://florida.pr.gov/",
+   "c": "Municipios",
+   "r": "Norte",
+   "t": "alcaldia pueblo municipio Florida"
+  },
+  {
+   "id": "mun-arecibo",
+   "n": "Municipio de Arecibo",
+   "s": "MUN",
+   "u": "https://arecibo.pr.gov/",
+   "c": "Municipios",
+   "r": "Norte",
+   "t": "alcaldia pueblo municipio Arecibo"
+  },
+  {
+   "id": "mun-hatillo",
+   "n": "Municipio de Hatillo",
+   "s": "MUN",
+   "u": "https://www.municipiodehatillo.com/",
+   "c": "Municipios",
+   "r": "Norte",
+   "t": "alcaldia pueblo municipio Hatillo"
+  },
+  {
+   "id": "mun-camuy",
+   "n": "Municipio de Camuy",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/camuy",
+   "c": "Municipios",
+   "r": "Norte",
+   "t": "alcaldia pueblo municipio Camuy"
+  },
+  {
+   "id": "mun-quebradillas",
+   "n": "Municipio de Quebradillas",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/quebradillas",
+   "c": "Municipios",
+   "r": "Norte",
+   "t": "alcaldia pueblo municipio Quebradillas"
+  },
+  {
+   "id": "mun-isabela",
+   "n": "Municipio de Isabela",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/isabela",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio Isabela"
+  },
+  {
+   "id": "mun-aguadilla",
+   "n": "Municipio de Aguadilla",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/aguadilla",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio Aguadilla"
+  },
+  {
+   "id": "mun-moca",
+   "n": "Municipio de Moca",
+   "s": "MUN",
+   "u": "https://www.moca.pr.gov/",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio Moca"
+  },
+  {
+   "id": "mun-aguada",
+   "n": "Municipio de Aguada",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/aguada",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio Aguada"
+  },
+  {
+   "id": "mun-rincon",
+   "n": "Municipio de Rincón",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/rincon",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio Rincón"
+  },
+  {
+   "id": "mun-anasco",
+   "n": "Municipio de Añasco",
+   "s": "MUN",
+   "u": "https://www.municipiodeanasco.com/",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio Añasco"
+  },
+  {
+   "id": "mun-mayaguez",
+   "n": "Municipio de Mayagüez",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/mayaguez",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio Mayagüez"
+  },
+  {
+   "id": "mun-hormigueros",
+   "n": "Municipio de Hormigueros",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/hormigueros",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio Hormigueros"
+  },
+  {
+   "id": "mun-cabo-rojo",
+   "n": "Municipio de Cabo Rojo",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/cabo-rojo",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio Cabo Rojo"
+  },
+  {
+   "id": "mun-san-german",
+   "n": "Municipio de San Germán",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/san-german",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio San Germán"
+  },
+  {
+   "id": "mun-lajas",
+   "n": "Municipio de Lajas",
+   "s": "MUN",
+   "u": "https://agencias.pr.gov/municipio/lajas/Pages/default.aspx",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio Lajas"
+  },
+  {
+   "id": "mun-sabana-grande",
+   "n": "Municipio de Sabana Grande",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/sabana-grande",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio Sabana Grande"
+  },
+  {
+   "id": "mun-san-sebastian",
+   "n": "Municipio de San Sebastián",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/san-sebastian",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio San Sebastián"
+  },
+  {
+   "id": "mun-las-marias",
+   "n": "Municipio de Las Marías",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/las-marias",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio Las Marías"
+  },
+  {
+   "id": "mun-maricao",
+   "n": "Municipio de Maricao",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/maricao",
+   "c": "Municipios",
+   "r": "Oeste",
+   "t": "alcaldia pueblo municipio Maricao"
+  },
+  {
+   "id": "mun-guanica",
+   "n": "Municipio de Guánica",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/guanica",
+   "c": "Municipios",
+   "r": "Sur",
+   "t": "alcaldia pueblo municipio Guánica"
+  },
+  {
+   "id": "mun-yauco",
+   "n": "Municipio de Yauco",
+   "s": "MUN",
+   "u": "https://yaucopr.com/",
+   "c": "Municipios",
+   "r": "Sur",
+   "t": "alcaldia pueblo municipio Yauco"
+  },
+  {
+   "id": "mun-guayanilla",
+   "n": "Municipio de Guayanilla",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/guayanilla",
+   "c": "Municipios",
+   "r": "Sur",
+   "t": "alcaldia pueblo municipio Guayanilla"
+  },
+  {
+   "id": "mun-penuelas",
+   "n": "Municipio de Peñuelas",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/penuelas",
+   "c": "Municipios",
+   "r": "Sur",
+   "t": "alcaldia pueblo municipio Peñuelas"
+  },
+  {
+   "id": "mun-ponce",
+   "n": "Municipio de Ponce",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/ponce",
+   "c": "Municipios",
+   "r": "Sur",
+   "t": "alcaldia pueblo municipio Ponce"
+  },
+  {
+   "id": "mun-juana-diaz",
+   "n": "Municipio de Juana Díaz",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/juana-diaz",
+   "c": "Municipios",
+   "r": "Sur",
+   "t": "alcaldia pueblo municipio Juana Díaz"
+  },
+  {
+   "id": "mun-villalba",
+   "n": "Municipio de Villalba",
+   "s": "MUN",
+   "u": "https://agencias.pr.gov/municipio/villalba/Pages/default.aspx",
+   "c": "Municipios",
+   "r": "Sur",
+   "t": "alcaldia pueblo municipio Villalba"
+  },
+  {
+   "id": "mun-santa-isabel",
+   "n": "Municipio de Santa Isabel",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/santa-isabel",
+   "c": "Municipios",
+   "r": "Sur",
+   "t": "alcaldia pueblo municipio Santa Isabel"
+  },
+  {
+   "id": "mun-coamo",
+   "n": "Municipio de Coamo",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/coamo",
+   "c": "Municipios",
+   "r": "Sur",
+   "t": "alcaldia pueblo municipio Coamo"
+  },
+  {
+   "id": "mun-salinas",
+   "n": "Municipio de Salinas",
+   "s": "MUN",
+   "u": "https://www.municipiosalinas.com/",
+   "c": "Municipios",
+   "r": "Sur",
+   "t": "alcaldia pueblo municipio Salinas"
+  },
+  {
+   "id": "mun-guayama",
+   "n": "Municipio de Guayama",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/guayama",
+   "c": "Municipios",
+   "r": "Sur",
+   "t": "alcaldia pueblo municipio Guayama"
+  },
+  {
+   "id": "mun-arroyo",
+   "n": "Municipio de Arroyo",
+   "s": "MUN",
+   "u": "https://www.arroyopr.gov/",
+   "c": "Municipios",
+   "r": "Sur",
+   "t": "alcaldia pueblo municipio Arroyo"
+  },
+  {
+   "id": "mun-patillas",
+   "n": "Municipio de Patillas",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/patillas",
+   "c": "Municipios",
+   "r": "Sur",
+   "t": "alcaldia pueblo municipio Patillas"
+  },
+  {
+   "id": "mun-loiza",
+   "n": "Municipio de Loíza",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/loiza",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Loíza"
+  },
+  {
+   "id": "mun-canovanas",
+   "n": "Municipio de Canóvanas",
+   "s": "MUN",
+   "u": "https://canovanas.pr/",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Canóvanas"
+  },
+  {
+   "id": "mun-rio-grande",
+   "n": "Municipio de Río Grande",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/rio-grande",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Río Grande"
+  },
+  {
+   "id": "mun-luquillo",
+   "n": "Municipio de Luquillo",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/luquillo",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Luquillo"
+  },
+  {
+   "id": "mun-fajardo",
+   "n": "Municipio de Fajardo",
+   "s": "MUN",
+   "u": "https://fajardopr.org/",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Fajardo"
+  },
+  {
+   "id": "mun-ceiba",
+   "n": "Municipio de Ceiba",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/ceiba",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Ceiba"
+  },
+  {
+   "id": "mun-naguabo",
+   "n": "Municipio de Naguabo",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/naguabo",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Naguabo"
+  },
+  {
+   "id": "mun-humacao",
+   "n": "Municipio de Humacao",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/humacao",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Humacao"
+  },
+  {
+   "id": "mun-las-piedras",
+   "n": "Municipio de Las Piedras",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/las-piedras",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Las Piedras"
+  },
+  {
+   "id": "mun-yabucoa",
+   "n": "Municipio de Yabucoa",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/yabucoa",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Yabucoa"
+  },
+  {
+   "id": "mun-maunabo",
+   "n": "Municipio de Maunabo",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/maunabo",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Maunabo"
+  },
+  {
+   "id": "mun-juncos",
+   "n": "Municipio de Juncos",
+   "s": "MUN",
+   "u": "https://www.municipiodejuncos.gov.pr/",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Juncos"
+  },
+  {
+   "id": "mun-gurabo",
+   "n": "Municipio de Gurabo",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/gurabo",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Gurabo"
+  },
+  {
+   "id": "mun-san-lorenzo",
+   "n": "Municipio de San Lorenzo",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/san-lorenzo",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio San Lorenzo"
+  },
+  {
+   "id": "mun-vieques",
+   "n": "Municipio de Vieques",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/vieques",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Vieques"
+  },
+  {
+   "id": "mun-culebra",
+   "n": "Municipio de Culebra",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/culebra",
+   "c": "Municipios",
+   "r": "Este",
+   "t": "alcaldia pueblo municipio Culebra"
+  },
+  {
+   "id": "mun-caguas",
+   "n": "Municipio de Caguas",
+   "s": "MUN",
+   "u": "https://caguas.gov.pr/",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Caguas"
+  },
+  {
+   "id": "mun-aguas-buenas",
+   "n": "Municipio de Aguas Buenas",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/aguas-buenas",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Aguas Buenas"
+  },
+  {
+   "id": "mun-cidra",
+   "n": "Municipio de Cidra",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/cidra",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Cidra"
+  },
+  {
+   "id": "mun-cayey",
+   "n": "Municipio de Cayey",
+   "s": "MUN",
+   "u": "https://agencias.pr.gov/municipio/cayey/Pages/default.aspx",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Cayey"
+  },
+  {
+   "id": "mun-aibonito",
+   "n": "Municipio de Aibonito",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/aibonito",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Aibonito"
+  },
+  {
+   "id": "mun-comerio",
+   "n": "Municipio de Comerío",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/comerio",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Comerío"
+  },
+  {
+   "id": "mun-barranquitas",
+   "n": "Municipio de Barranquitas",
+   "s": "MUN",
+   "u": "https://barranquitas.pr.gov/",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Barranquitas"
+  },
+  {
+   "id": "mun-naranjito",
+   "n": "Municipio de Naranjito",
+   "s": "MUN",
+   "u": "https://municipiodenaranjito.com/",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Naranjito"
+  },
+  {
+   "id": "mun-corozal",
+   "n": "Municipio de Corozal",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/corozal",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Corozal"
+  },
+  {
+   "id": "mun-orocovis",
+   "n": "Municipio de Orocovis",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/orocovis",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Orocovis"
+  },
+  {
+   "id": "mun-morovis",
+   "n": "Municipio de Morovis",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/morovis",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Morovis"
+  },
+  {
+   "id": "mun-ciales",
+   "n": "Municipio de Ciales",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/ciales",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Ciales"
+  },
+  {
+   "id": "mun-jayuya",
+   "n": "Municipio de Jayuya",
+   "s": "MUN",
+   "u": "https://agencias.pr.gov/municipio/jayuya/Pages/inicio.aspx",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Jayuya"
+  },
+  {
+   "id": "mun-utuado",
+   "n": "Municipio de Utuado",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/utuado",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Utuado"
+  },
+  {
+   "id": "mun-lares",
+   "n": "Municipio de Lares",
+   "s": "MUN",
+   "u": "https://lares.pr.gov/",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Lares"
+  },
+  {
+   "id": "mun-adjuntas",
+   "n": "Municipio de Adjuntas",
+   "s": "MUN",
+   "u": "https://pr.gov/directorio-municipos/adjuntas",
+   "c": "Municipios",
+   "r": "Centro",
+   "t": "alcaldia pueblo municipio Adjuntas"
+  }
+ ]
+}

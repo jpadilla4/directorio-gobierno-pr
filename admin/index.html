@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Panel del Directorio PR</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: barra superior con campana de avisos, pestañas Sugerencias/Enlaces, listas operables y un diálogo para editar */
+:root {
+  --bg: #f5f7fb; --surface: #ffffff; --line: #dbe1ec; --ink: #0e1a33; --muted: #56627a;
+  --accent: #0b3d91; --accent-soft: #e6edfa; --hot: #c8102e; --header: #0b2a63;
+  --ok: #1d7a46; --ok-soft: #e3f3ea; --warn-soft: #fdecee; --danger: #b42318;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1222; --surface: #121b30; --line: #24304a; --ink: #e8edf7; --muted: #9aa7c0;
+    --accent: #8fb3ff; --accent-soft: #1a2a4d; --hot: #ff6b7f; --header: #071433;
+    --ok: #5fd08a; --ok-soft: #12301f; --warn-soft: #3a1a1e; --danger: #ff8a80;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--f-body); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--header); }
+button, input, select, textarea { font: inherit; }
+a { color: var(--accent); }
+.wrap { max-width: 1100px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Barra superior */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--header); color: #fff; }
+.top .wrap { display: flex; align-items: center; gap: 12px; padding-block: 12px; flex-wrap: wrap; }
+.brand { font: 800 20px var(--f-display); margin-right: auto; display: flex; align-items: center; gap: 10px; }
+.brand svg { width: 27px; height: 18px; border-radius: 2px; }
+.tbtn { color: #fff; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); border-radius: 8px; padding: 6px 12px; font-weight: 600; font-size: 13px; cursor: pointer; text-decoration: none; }
+.tbtn:hover, .tbtn:focus-visible { border-color: #fff; outline: none; }
+.bell { position: relative; display: inline-flex; align-items: center; gap: 6px; }
+.bell svg { width: 18px; height: 18px; }
+.badge { min-width: 20px; height: 20px; border-radius: 999px; background: var(--hot); color: #fff; font: 600 12px var(--f-mono); display: inline-grid; place-items: center; padding: 0 6px; }
+.bell.ring svg { animation: ring .9s ease 2; transform-origin: 50% 10%; }
+@keyframes ring { 0%,100% { transform: rotate(0) } 20% { transform: rotate(14deg) } 40% { transform: rotate(-12deg) } 60% { transform: rotate(8deg) } 80% { transform: rotate(-4deg) } }
+
+/* Entrada */
+.login { min-height: 70vh; display: grid; place-items: center; padding-block: 40px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; width: min(400px, 100%); display: grid; gap: 14px; }
+h1, h2 { font-family: var(--f-display); margin: 0; text-wrap: balance; }
+h1 { font-size: 26px; font-weight: 800; }
+h2 { font-size: 20px; font-weight: 600; }
+.sub { margin: 0; color: var(--muted); font-size: 14px; }
+
+/* Pestañas */
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-block: 20px 16px; overflow-x: auto; }
+.tab { background: none; border: 0; border-bottom: 3px solid transparent; padding: 10px 14px; font-weight: 600; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.tab[aria-selected="true"] { color: var(--ink); border-color: var(--hot); }
+.tab:focus-visible { outline: 2px solid var(--accent); }
+.tab .n { font: 500 12px var(--f-mono); margin-left: 4px; }
+
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+.bar .grow { flex: 1 1 220px; min-width: 0; }
+.chip { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-size: 13px; font-weight: 500; color: var(--ink); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.chip .n { font: 500 11px var(--f-mono); opacity: .75; margin-left: 4px; }
+
+.field { display: grid; gap: 4px; min-width: 0; }
+.field label { font: 600 12px var(--f-body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+input, select, textarea { color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; width: 100%; }
+textarea { min-height: 80px; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); border-color: transparent; }
+.btn { border-radius: 8px; padding: 9px 16px; font-weight: 600; font-size: 14px; cursor: pointer; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.btn.small { padding: 5px 10px; font-size: 13px; }
+.btn.danger, .btn.armed { color: var(--danger); }
+.btn.armed { border-color: var(--danger); }
+.btn:disabled { opacity: .55; cursor: default; }
+.btn:focus-visible, .chip:focus-visible { outline: 2px solid var(--hot); outline-offset: 2px; }
+.msg { font-size: 14px; }
+.msg.ok { color: var(--ok); }
+.msg.err { color: var(--danger); }
+
+/* Sugerencias */
+.sugs { display: grid; gap: 10px; }
+.sug { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 8px; }
+.sug.nueva { border-left: 4px solid var(--hot); }
+.sug-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); }
+.pill { font: 600 11px var(--f-body); letter-spacing: .05em; text-transform: uppercase; border-radius: 999px; padding: 2px 8px; }
+.pill.tipo { background: var(--accent-soft); color: var(--accent); }
+.pill.nueva { background: var(--hot); color: #fff; }
+.pill.leida { background: var(--ok-soft); color: var(--ok); }
+.pill.archivada { background: var(--line); color: var(--muted); }
+.sug p { margin: 0; overflow-wrap: anywhere; white-space: pre-wrap; }
+.meta { font: 500 12px var(--f-mono); color: var(--muted); overflow-wrap: anywhere; }
+.actions { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* Enlaces */
+.links { display: grid; gap: 6px; }
+.lrow { display: grid; grid-template-columns: 70px minmax(0, 1fr) auto; gap: 12px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+.sigla { font: 500 12px var(--f-mono); color: var(--accent); background: var(--accent-soft); border-radius: 5px; padding: 3px 0; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lname { font-weight: 600; line-height: 1.3; }
+.empty { background: var(--surface); border: 1px dashed var(--line); border-radius: 10px; padding: 28px; text-align: center; color: var(--muted); }
+
+/* Diálogo y avisos */
+.overlay { position: fixed; inset: 0; z-index: 20; background: rgba(5,10,20,.55); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.dialog { width: min(560px, 100%); max-height: 100%; overflow-y: auto; background: var(--surface); border-radius: 14px; padding: 22px; display: grid; gap: 14px; }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.full { grid-column: 1 / -1; }
+.row { grid-column: 1 / -1; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.toasts { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px)); z-index: 30; display: grid; gap: 8px; width: min(360px, calc(100% - 32px)); }
+.toast { background: var(--ink); color: var(--bg); border-radius: 10px; padding: 12px 14px; display: grid; gap: 2px; box-shadow: 0 8px 24px rgba(0,0,0,.25); cursor: pointer; animation: up .25s ease; }
+.toast b { font-size: 14px; }
+.toast span { font-size: 13px; opacity: .85; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@keyframes up { from { transform: translateY(8px); opacity: 0 } to { transform: none; opacity: 1 } }
+.updated { font-size: 12px; color: var(--muted); }
+main { padding-bottom: 64px; }
+
+@media (max-width: 640px) {
+  .form { grid-template-columns: minmax(0, 1fr); }
+  .lrow { grid-template-columns: 56px minmax(0, 1fr); }
+  .lrow .actions { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before { animation: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><rect width="30" height="4" fill="#ed0000"/><rect y="8" width="30" height="4" fill="#ed0000"/><rect y="16" width="30" height="4" fill="#ed0000"/><polygon points="0,0 17,10 0,20" fill="#0050f0"/></svg>
+      Panel del Directorio
+    </div>
+    <button class="tbtn bell" id="bell" type="button" hidden aria-label="Sugerencias nuevas">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+      <span class="badge" id="badge">0</span>
+    </button>
+    <a class="tbtn" href="/" target="_blank" rel="noopener">Ver sitio</a>
+    <button class="tbtn" id="logout" type="button" hidden>Salir</button>
+  </div>
+</header>
+
+<section class="wrap login" id="loginView" hidden>
+  <form class="card" id="loginForm">
+    <h1>Entrar al panel</h1>
+    <p class="sub">Escribe la contraseña de administración del directorio.</p>
+    <div class="field"><label for="pw">Contraseña</label><input id="pw" type="password" autocomplete="current-password" required></div>
+    <button class="btn primary" id="loginBtn" type="submit">Entrar</button>
+    <span class="msg" id="loginMsg" role="status"></span>
+  </form>
+</section>
+
+<main class="wrap" id="appView" hidden>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tabSug" aria-selected="true" aria-controls="sugPanel" type="button">Sugerencias<span class="n" id="nSug"></span></button>
+    <button class="tab" role="tab" id="tabLinks" aria-selected="false" aria-controls="linksPanel" type="button">Enlaces<span class="n" id="nLinks"></span></button>
+  </div>
+
+  <section id="sugPanel" role="tabpanel" aria-labelledby="tabSug">
+    <div class="bar">
+      <div class="actions" id="sugFilters" role="group" aria-label="Filtrar sugerencias"></div>
+      <span class="grow"></span>
+      <button class="btn small" id="notifyBtn" type="button" hidden>Activar avisos del navegador</button>
+      <span class="updated" id="updated"></span>
+    </div>
+    <div class="sugs" id="sugs"></div>
+  </section>
+
+  <section id="linksPanel" role="tabpanel" aria-labelledby="tabLinks" hidden>
+    <div class="bar">
+      <input class="grow" id="lq" type="search" placeholder="Buscar por nombre, sigla o dominio" aria-label="Buscar enlaces">
+      <select id="lcat" aria-label="Filtrar por categoría" style="width:auto"></select>
+      <button class="btn primary" id="newLink" type="button">+ Agregar enlace</button>
+    </div>
+    <div class="links" id="links"></div>
+  </section>
+</main>
+
+<div class="overlay" id="editor" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="edH">
+    <h2 id="edH">Agregar enlace</h2>
+    <form class="form" id="linkForm" novalidate>
+      <div class="field full"><label for="fName">Nombre</label><input id="fName" maxlength="120" required></div>
+      <div class="field"><label for="fSigla">Sigla</label><input id="fSigla" maxlength="12"></div>
+      <div class="field"><label for="fCat">Categoría</label><select id="fCat"></select></div>
+      <div class="field full" id="newCatWrap" hidden><label for="fNewCat">Nombre de la categoría nueva</label><input id="fNewCat" maxlength="60"></div>
+      <div class="field full" id="regionWrap" hidden><label for="fRegion">Región</label><select id="fRegion"></select></div>
+      <div class="field full"><label for="fUrl">Enlace (URL)</label><input id="fUrl" type="url" required placeholder="https://"></div>
+      <div class="field full"><label for="fTags">Palabras clave para la búsqueda</label><input id="fTags" maxlength="200"></div>
+      <div class="row">
+        <button class="btn primary" id="saveBtn" type="submit">Guardar</button>
+        <button class="btn" id="cancelBtn" type="button">Cancelar</button>
+        <span class="msg" id="formMsg" role="status"></span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const norm = (s) => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const host = (u) => String(u).replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "");
+const safeUrl = (u) => { try { const x = new URL(String(u)); return /^https?:$/.test(x.protocol) ? x.href : null; } catch { return null; } };
+const fmt = (iso) => new Date(iso).toLocaleString("es-PR", { day: "numeric", month: "short", year: "numeric", hour: "numeric", minute: "2-digit" });
+const POLL_MS = 30000;
+const BASE_TITLE = document.title;
+
+let dir = { categorias: [], regiones: [], enlaces: [] };
+let sugs = [], known = null, sugFilter = "nueva", editingId = null, pollTimer = null;
+
+async function api(path, opts = {}) {
+  const r = await fetch(path, { credentials: "same-origin", headers: { "Content-Type": "application/json" }, ...opts });
+  const data = await r.json().catch(() => ({}));
+  if (r.status === 401 && path !== "/api/sesion") { showLogin("Tu sesión expiró. Vuelve a entrar."); throw new Error(data.error); }
+  if (!r.ok) throw new Error(data.error || "No se pudo completar. Intenta de nuevo.");
+  return data;
+}
+
+/* ---------- Sesión ---------- */
+function showLogin(msg) {
+  clearInterval(pollTimer);
+  $("#appView").hidden = true; $("#bell").hidden = true; $("#logout").hidden = true;
+  $("#loginView").hidden = false;
+  $("#loginMsg").textContent = msg || ""; $("#loginMsg").className = "msg err";
+  $("#pw").focus();
+}
+async function showApp() {
+  $("#loginView").hidden = true;
+  $("#appView").hidden = false; $("#bell").hidden = false; $("#logout").hidden = false;
+  $("#notifyBtn").hidden = !("Notification" in window) || Notification.permission !== "default";
+  await Promise.all([loadSugs(), loadLinks()]);
+  clearInterval(pollTimer);
+  pollTimer = setInterval(() => { if (!document.hidden) loadSugs(); }, POLL_MS);
+}
+$("#loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  $("#loginBtn").disabled = true; $("#loginMsg").textContent = "";
+  try {
+    await api("/api/sesion", { method: "POST", body: JSON.stringify({ password: $("#pw").value }) });
+    $("#pw").value = "";
+    await showApp();
+  } catch (err) {
+    $("#loginMsg").textContent = err.message; $("#loginMsg").className = "msg err";
+  } finally { $("#loginBtn").disabled = false; }
+});
+$("#logout").addEventListener("click", async () => { await api("/api/sesion", { method: "DELETE" }).catch(() => {}); known = null; showLogin("Saliste del panel."); $("#loginMsg").className = "msg ok"; });
+document.addEventListener("visibilitychange", () => { if (!document.hidden && !$("#appView").hidden) loadSugs(); });
+
+/* ---------- Avisos ---------- */
+function toast(title, text, onClick) {
+  const t = document.createElement("div");
+  t.className = "toast"; t.setAttribute("role", "status");
+  t.innerHTML = `<b></b><span></span>`;
+  t.querySelector("b").textContent = title; t.querySelector("span").textContent = text || "";
+  t.addEventListener("click", () => { onClick?.(); t.remove(); });
+  $("#toasts").append(t);
+  setTimeout(() => t.remove(), 7000);
+}
+function setBadge(n) {
+  $("#badge").textContent = n;
+  $("#badge").hidden = n === 0;
+  $("#bell").setAttribute("aria-label", n ? `${n} sugerencias nuevas` : "Sin sugerencias nuevas");
+  $("#nSug").textContent = n ? `(${n})` : "";
+  document.title = n ? `(${n}) ${BASE_TITLE}` : BASE_TITLE;
+}
+function notifyNew(items) {
+  const bell = $("#bell");
+  bell.classList.remove("ring"); void bell.offsetWidth; bell.classList.add("ring");
+  const first = items[0];
+  const title = items.length === 1 ? `Nueva sugerencia: ${first.tipo}` : `${items.length} sugerencias nuevas`;
+  toast(title, first.msg, openNew);
+  if ("Notification" in window && Notification.permission === "granted" && document.visibilityState !== "visible") {
+    try { new Notification(title, { body: first.msg.slice(0, 120), icon: "/favicon.svg", tag: "sugerencias" }); } catch {}
+  }
+}
+function openNew() { selectTab("sug"); sugFilter = "nueva"; renderSugs(); }
+$("#bell").addEventListener("click", openNew);
+$("#notifyBtn").addEventListener("click", async () => {
+  const p = await Notification.requestPermission();
+  $("#notifyBtn").hidden = true;
+  toast(p === "granted" ? "Avisos activados" : "Avisos no activados", p === "granted" ? "Te avisaremos aunque estés en otra pestaña." : "Puedes activarlos luego desde la configuración del navegador.");
+});
+
+/* ---------- Sugerencias ---------- */
+async function loadSugs() {
+  try {
+    const data = await api("/api/sugerencias");
+    sugs = data.items;
+    const ids = new Set(sugs.map((s) => s.id));
+    if (known) {
+      const fresh = sugs.filter((s) => !known.has(s.id) && s.estado === "nueva");
+      if (fresh.length) notifyNew(fresh);
+    } else if (data.nuevas) {
+      toast(`Tienes ${data.nuevas} sugerencia${data.nuevas === 1 ? "" : "s"} sin leer`, "Pulsa para verlas.", openNew);
+    }
+    known = ids;
+    setBadge(data.nuevas);
+    $("#updated").textContent = "Actualizado " + new Date().toLocaleTimeString("es-PR", { hour: "numeric", minute: "2-digit" });
+    renderSugs();
+  } catch {}
+}
+function renderSugs() {
+  const counts = { nueva: 0, leida: 0, archivada: 0 };
+  sugs.forEach((s) => counts[s.estado]++);
+  const filters = [["nueva", "Nuevas"], ["leida", "Leídas"], ["archivada", "Archivadas"], ["", "Todas"]];
+  $("#sugFilters").innerHTML = filters.map(([k, l]) => `<button class="chip" type="button" data-f="${k}" aria-pressed="${sugFilter === k}">${l}<span class="n">${k ? counts[k] : sugs.length}</span></button>`).join("");
+  const list = sugs.filter((s) => !sugFilter || s.estado === sugFilter);
+  if (!list.length) {
+    const label = { nueva: "No hay sugerencias nuevas.", leida: "No hay sugerencias leídas.", archivada: "No hay sugerencias archivadas.", "": "Todavía no ha llegado ninguna sugerencia." }[sugFilter];
+    $("#sugs").innerHTML = `<div class="empty">${label}<br>Las que envíen desde el buzón del sitio aparecen aquí en menos de un minuto.</div>`;
+    return;
+  }
+  $("#sugs").innerHTML = list.map((s) => {
+    const url = safeUrl(s.url);
+    const estados = { nueva: "Nueva", leida: "Leída", archivada: "Archivada" };
+    return `<article class="sug ${s.estado}" data-id="${esc(s.id)}">
+      <div class="sug-head"><span class="pill tipo">${esc(s.tipo)}</span><span class="pill ${s.estado}">${estados[s.estado]}</span><span>${esc(fmt(s.fecha))}</span></div>
+      <p>${esc(s.msg)}</p>
+      ${url ? `<div class="meta">Enlace: <a href="${esc(url)}" target="_blank" rel="noopener">${esc(host(url))}</a></div>` : ""}
+      ${s.contacto ? `<div class="meta">Contacto: ${esc(s.contacto)}</div>` : ""}
+      <div class="actions">
+        ${s.estado === "nueva" ? `<button class="btn small" data-act="leida">Marcar leída</button>` : `<button class="btn small" data-act="nueva">Marcar como nueva</button>`}
+        ${s.estado !== "archivada" ? `<button class="btn small" data-act="archivada">Archivar</button>` : ""}
+        ${url ? `<button class="btn small" data-act="agregar">Agregar como enlace</button>` : ""}
+        <button class="btn small danger" data-act="borrar">Borrar</button>
+      </div></article>`;
+  }).join("");
+}
+$("#sugFilters").addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (b) { sugFilter = b.dataset.f; renderSugs(); } });
+$("#sugs").addEventListener("click", async (e) => {
+  const b = e.target.closest("[data-act]"); if (!b) return;
+  const id = b.closest(".sug").dataset.id, act = b.dataset.act, s = sugs.find((x) => x.id === id);
+  if (act === "agregar") {
+    if (s.estado === "nueva") setEstado(id, "leida");
+    openEditor(null, { u: s.url, t: s.msg.slice(0, 120) });
+    return;
+  }
+  if (act === "borrar") {
+    if (!b.classList.contains("armed")) { b.classList.add("armed"); b.textContent = "¿Borrar de verdad?"; setTimeout(() => { if (b.isConnected) { b.classList.remove("armed"); b.textContent = "Borrar"; } }, 4000); return; }
+    b.disabled = true;
+    try { await api("/api/sugerencias?id=" + encodeURIComponent(id), { method: "DELETE" }); sugs = sugs.filter((x) => x.id !== id); afterSugChange(); toast("Sugerencia borrada"); }
+    catch (err) { b.disabled = false; toast("No se pudo borrar", err.message); }
+    return;
+  }
+  b.disabled = true;
+  await setEstado(id, act);
+});
+async function setEstado(id, estado) {
+  try {
+    const { item } = await api("/api/sugerencias", { method: "PATCH", body: JSON.stringify({ id, estado }) });
+    sugs = sugs.map((x) => (x.id === id ? item : x));
+    afterSugChange();
+  } catch (err) { toast("No se pudo actualizar", err.message); renderSugs(); }
+}
+function afterSugChange() { setBadge(sugs.filter((s) => s.estado === "nueva").length); renderSugs(); }
+
+/* ---------- Enlaces ---------- */
+async function loadLinks() {
+  try {
+    dir = await api("/api/enlaces");
+    const keep = $("#lcat").value;
+    $("#lcat").innerHTML = `<option value="">Todas las categorías</option>` + dir.categorias.map((c) => `<option>${esc(c)}</option>`).join("");
+    $("#lcat").value = keep;
+    $("#fRegion").innerHTML = dir.regiones.map((r) => `<option>${esc(r)}</option>`).join("");
+    renderLinks();
+  } catch (err) { $("#links").innerHTML = `<div class="empty">${esc(err.message)}</div>`; }
+}
+function renderLinks() {
+  $("#nLinks").textContent = `(${dir.enlaces.length})`;
+  const terms = norm($("#lq").value).split(/\s+/).filter(Boolean), c = $("#lcat").value;
+  const list = dir.enlaces
+    .filter((l) => (!c || l.c === c) && terms.every((t) => norm([l.n, l.s, l.u, l.c, l.r, l.t].join(" ")).includes(t)))
+    .sort((a, b) => a.c.localeCompare(b.c, "es") || a.n.localeCompare(b.n, "es"));
+  if (!list.length) { $("#links").innerHTML = `<div class="empty">Ningún enlace coincide con la búsqueda.</div>`; return; }
+  $("#links").innerHTML = list.map((l) => `<div class="lrow" data-id="${esc(l.id)}">
+    <span class="sigla" title="${esc(l.s)}">${esc(l.s || "—")}</span>
+    <div style="min-width:0"><div class="lname">${esc(l.n)}</div><div class="meta">${esc(l.c)}${l.r ? " · " + esc(l.r) : ""} · <a href="${esc(safeUrl(l.u) || "#")}" target="_blank" rel="noopener">${esc(host(l.u))}</a></div></div>
+    <div class="actions"><button class="btn small" data-act="editar">Editar</button><button class="btn small danger" data-act="borrar">Borrar</button></div></div>`).join("");
+}
+$("#lq").addEventListener("input", renderLinks);
+$("#lcat").addEventListener("change", renderLinks);
+$("#newLink").addEventListener("click", () => openEditor(null, { c: $("#lcat").value }));
+$("#links").addEventListener("click", async (e) => {
+  const b = e.target.closest("[data-act]"); if (!b) return;
+  const id = b.closest(".lrow").dataset.id;
+  if (b.dataset.act === "editar") return openEditor(dir.enlaces.find((l) => l.id === id));
+  if (!b.classList.contains("armed")) { b.classList.add("armed"); b.textContent = "¿Borrar de verdad?"; setTimeout(() => { if (b.isConnected) { b.classList.remove("armed"); b.textContent = "Borrar"; } }, 4000); return; }
+  b.disabled = true;
+  try { await api("/api/enlaces?id=" + encodeURIComponent(id), { method: "DELETE" }); dir.enlaces = dir.enlaces.filter((l) => l.id !== id); renderLinks(); toast("Enlace borrado", "Ya no aparece en el sitio (puede tardar hasta 30 segundos)."); }
+  catch (err) { b.disabled = false; toast("No se pudo borrar", err.message); }
+});
+
+/* ---------- Editor de enlaces ---------- */
+let lastFocus = null;
+function openEditor(link, prefill = {}) {
+  lastFocus = document.activeElement;
+  editingId = link?.id || null;
+  const v = link || prefill;
+  const cat = v.c || dir.categorias[0];
+  $("#fCat").innerHTML = dir.categorias.map((c) => `<option${c === cat ? " selected" : ""}>${esc(c)}</option>`).join("") + `<option value="__nueva">+ Nueva categoría…</option>`;
+  $("#fName").value = v.n || ""; $("#fSigla").value = v.s || ""; $("#fUrl").value = v.u || ""; $("#fTags").value = v.t || "";
+  if (v.r) $("#fRegion").value = v.r;
+  $("#newCatWrap").hidden = true; $("#fNewCat").value = "";
+  $("#regionWrap").hidden = cat !== "Municipios";
+  $("#edH").textContent = link ? "Editar enlace" : "Agregar enlace";
+  $("#formMsg").textContent = "";
+  $("#editor").hidden = false;
+  $("#fName").focus();
+}
+function closeEditor() { $("#editor").hidden = true; lastFocus?.focus?.(); }
+$("#cancelBtn").addEventListener("click", closeEditor);
+$("#editor").addEventListener("click", (e) => { if (e.target === $("#editor")) closeEditor(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("#editor").hidden) closeEditor(); });
+$("#fCat").addEventListener("change", () => {
+  $("#newCatWrap").hidden = $("#fCat").value !== "__nueva";
+  $("#regionWrap").hidden = $("#fCat").value !== "Municipios";
+});
+$("#linkForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const say = (t, ok) => { $("#formMsg").textContent = t; $("#formMsg").className = "msg " + (ok ? "ok" : "err"); };
+  const c = $("#fCat").value === "__nueva" ? $("#fNewCat").value.trim() : $("#fCat").value;
+  const body = { id: editingId, n: $("#fName").value.trim(), s: $("#fSigla").value.trim(), u: $("#fUrl").value.trim(), c, t: $("#fTags").value.trim() };
+  if (c === "Municipios") body.r = $("#fRegion").value;
+  if (!body.n) return say("Escribe el nombre de la entidad.", false);
+  if (!safeUrl(body.u)) return say("El enlace debe empezar con https:// o http://.", false);
+  if (!c) return say("Escribe el nombre de la categoría nueva.", false);
+  $("#saveBtn").disabled = true;
+  try {
+    await api("/api/enlaces", { method: editingId ? "PUT" : "POST", body: JSON.stringify(body) });
+    closeEditor();
+    toast(editingId ? "Cambios guardados" : "Enlace agregado", `${body.n} · se verá en el sitio en menos de un minuto.`);
+    await loadLinks();
+  } catch (err) { say(err.message, false); }
+  finally { $("#saveBtn").disabled = false; }
+});
+
+/* ---------- Pestañas ---------- */
+function selectTab(which) {
+  const sug = which === "sug";
+  $("#tabSug").setAttribute("aria-selected", sug); $("#tabLinks").setAttribute("aria-selected", !sug);
+  $("#sugPanel").hidden = !sug; $("#linksPanel").hidden = sug;
+}
+$("#tabSug").addEventListener("click", () => selectTab("sug"));
+$("#tabLinks").addEventListener("click", () => selectTab("links"));
+
+/* ---------- Inicio ---------- */
+api("/api/sesion").then((s) => (s.admin ? showApp() : showLogin())).catch(() => showLogin("No se pudo conectar con el servidor."));
+</script>
+</body>
+</html>

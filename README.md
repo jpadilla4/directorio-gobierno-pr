@@ -42,6 +42,10 @@ Variables de entorno necesarias (nunca se guardan en el repositorio):
 - `SESSION_SECRET`: texto aleatorio de 32 caracteres o más para firmar la sesión.
 - `ADMIN_PASSWORD`: contraseña del panel.
 
+## Publicación
+
+Vercel está conectado a este repositorio. Cada cambio que llega a `main` se publica solo en el sitio; las demás ramas generan una vista previa.
+
 ## Desarrollo local
 
 ```bash

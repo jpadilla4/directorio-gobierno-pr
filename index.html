@@ -404,7 +404,7 @@ const safeUrl = (u) => { try { const x = new URL(String(u)); return /^https?:$/.
 const arrow = '<svg class="go" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5"/></svg>';
 const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
 
-let links = [], loaded = false, cat = "", reg = "";
+let links = [], loaded = false, cat = "", reg = "", lastHits = 0;
 const adminOn = false;
 
 /* ---------- Colores ---------- */
@@ -473,6 +473,7 @@ function render() {
       REGIONS.map((r) => `<button class="reg" type="button" data-r="${r}" aria-pressed="${reg === r}">${r}<span class="n">${muniMatched.filter((it) => it.r === r).length}</span></button>`).join("");
   }
   const shown = matched.filter((it) => (!cat || it.c === cat) && (!reg || it.r === reg));
+  lastHits = matched.length;
   $("#status").innerHTML = `<span><strong>${shown.length}</strong> de ${links.length} enlaces · ${esc(cat || "todas las categorías")}${reg ? " · " + esc(reg) : ""}</span>` +
     (adminOn ? `<span class="pill">Modo administrador</span>` : raw ? `<span>Resultados para “${esc(raw)}”</span>` : "");
 
@@ -554,6 +555,29 @@ render();
   loaded = true;
   render();
 })();
+
+/* ---------- Estadísticas anónimas (sin cookies) ---------- */
+function track(body) {
+  try {
+    fetch("/api/track", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), keepalive: true }).catch(() => {});
+  } catch {}
+}
+{
+  const p = new URLSearchParams(location.search);
+  track({ type: "view", referrer: document.referrer, ref: p.get("ref") || p.get("utm_source") || "" });
+}
+// Una búsqueda cuenta cuando la persona deja de escribir 1.5 s (o sale del buscador)
+let searchTimer = null, lastTracked = "";
+function trackSearch() {
+  clearTimeout(searchTimer);
+  const q = $("#q").value.trim();
+  if (q.length < 3 || !loaded || q.toLowerCase() === lastTracked) return;
+  lastTracked = q.toLowerCase();
+  track({ type: "search", q, hits: lastHits });
+}
+$("#q").addEventListener("input", () => { clearTimeout(searchTimer); searchTimer = setTimeout(trackSearch, 1500); });
+$("#q").addEventListener("blur", trackSearch);
+document.querySelectorAll(".hint button").forEach((b) => b.addEventListener("click", () => setTimeout(trackSearch, 0)));
 </script>
 </body>
 </html>

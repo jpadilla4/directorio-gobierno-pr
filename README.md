@@ -23,6 +23,7 @@ Directorio con búsqueda de las agencias, servicios y los 78 municipios del Gobi
 | API | Funciones de Vercel (Node.js) en `api/` |
 | Datos | Vercel Blob privado: `data/enlaces.json` y una sugerencia por archivo |
 | Sesión del admin | Cookie `HttpOnly` firmada con HMAC, válida por 8 horas |
+| Estadísticas | Turso (libSQL), anónimas y sin cookies |
 
 ```
 index.html                    Sitio público
@@ -41,6 +42,13 @@ Variables de entorno necesarias (nunca se guardan en el repositorio):
 - `BLOB_READ_WRITE_TOKEN`: la crea Vercel al conectar el Blob store.
 - `SESSION_SECRET`: texto aleatorio de 32 caracteres o más para firmar la sesión.
 - `ADMIN_PASSWORD`: contraseña del panel.
+- `TURSO_DATABASE_URL` y `TURSO_AUTH_TOKEN`: base de datos de Turso para las estadísticas. Sin ellas, el sitio funciona igual y la pestaña de estadísticas muestra un aviso.
+
+## Estadísticas
+
+La pestaña **Estadísticas** del panel muestra visitantes y visitas de hoy, del periodo (7, 30 o 90 días) y desde el inicio. También muestra una gráfica por día, de dónde llegan las visitas, el dispositivo, lo más buscado y las búsquedas sin resultados.
+
+No usa cookies. Cada visitante se cuenta con un código anónimo (hash de una sal diaria + IP + navegador) que cambia cada día, y la IP no se guarda. El detalle se borra a los 90 días y se conservan los totales diarios. No se cuentan los bots ni las visitas con sesión del panel. Para saber de dónde llega la gente, comparte el enlace con `?ref=facebook`, `?ref=whatsapp`, etc.
 
 ## Publicación
 

@@ -99,12 +99,10 @@ img { max-width: 100%; }
   --bg-l: #f5f6f8; --bg-d: #0f1114; --surface-l: #ffffff; --surface-d: #181b20; --line-l: #dcdfe5; --line-d: #2b2f37;
 }
 :root[data-palette="blanco"] {
-  --header-l: #ffffff; --header-d: #16191f; --accent-l: #1f4fd1; --accent-d: #9db8ff;
+  --header-l: #1f4fd1; --header-d: #1f4fd1; --accent-l: #1f4fd1; --accent-d: #9db8ff;
   --soft-l: #eaf0fe; --soft-d: #1d2640; --hot-l: #d0263a; --hot-d: #ff7383;
   --bg-l: #ffffff; --bg-d: #0f1115; --surface-l: #ffffff; --surface-d: #181b21; --line-l: #e3e6ec; --line-d: #2a2e37;
-  --hink-l: #0e1a33; --hmuted-l: #5a6478;
-  --chip-l: #f2f4f8; --chipline-l: #dfe3ea;
-  --edge-l: #d5dae3; --edge-d: #2a2e37;
+  --hmuted-l: rgba(255,255,255,.8); --chip-l: rgba(255,255,255,.12); --chipline-l: rgba(255,255,255,.3);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -131,16 +129,16 @@ img { max-width: 100%; }
   :root[data-palette="blanco"]:not([data-theme="light"]) {
     --bg: #ffffff; --surface: #ffffff; --line: #e3e6ec; --ink: #0e1a33; --muted: #56627a;
     --accent: #1f4fd1; --accent-soft: #eaf0fe; --hot: #d0263a; --mark: #ffe58a; --ok: #1d7a46; --danger: #b42318;
-    --header: #ffffff; --header-ink: #0e1a33; --header-muted: #5a6478;
-    --header-chip: #f2f4f8; --header-chipline: #dfe3ea; --search-edge: #d5dae3;
+    --header: #1f4fd1; --header-ink: #ffffff; --header-muted: rgba(255,255,255,.8);
+    --header-chip: rgba(255,255,255,.12); --header-chipline: rgba(255,255,255,.3); --search-edge: transparent;
     color-scheme: light;
   }
 }
 :root[data-palette="blanco"][data-theme="dark"] {
   --bg: #ffffff; --surface: #ffffff; --line: #e3e6ec; --ink: #0e1a33; --muted: #56627a;
   --accent: #1f4fd1; --accent-soft: #eaf0fe; --hot: #d0263a; --mark: #ffe58a; --ok: #1d7a46; --danger: #b42318;
-  --header: #ffffff; --header-ink: #0e1a33; --header-muted: #5a6478;
-  --header-chip: #f2f4f8; --header-chipline: #dfe3ea; --search-edge: #d5dae3;
+  --header: #1f4fd1; --header-ink: #ffffff; --header-muted: rgba(255,255,255,.8);
+  --header-chip: rgba(255,255,255,.12); --header-chipline: rgba(255,255,255,.3); --search-edge: transparent;
   color-scheme: light;
 }
 * { box-sizing: border-box; }

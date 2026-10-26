@@ -3,9 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Directorio Gobierno de Puerto Rico</title>
-<meta name="description" content="Directorio con búsqueda de agencias, servicios y los 78 municipios del Gobierno de Puerto Rico.">
+<title>Directorio Gobierno de Puerto Rico · Agencias, trámites y municipios</title>
+<meta name="description" content="Busca en un solo lugar los portales de las agencias, servicios y los 78 municipios de Puerto Rico: CESCO, SURI, LUMA, empleos.pr.gov y más. Sitio independiente, no oficial.">
+<link rel="canonical" href="https://directorio-pr-sitio.vercel.app/">
+<meta name="theme-color" content="#0b2a63">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_PR">
+<meta property="og:site_name" content="Directorio Gobierno de Puerto Rico">
+<meta property="og:title" content="Directorio Gobierno de Puerto Rico · Agencias, trámites y municipios">
+<meta property="og:description" content="Todos los portales del gobierno y los 78 municipios en un solo buscador. Sitio independiente, no oficial.">
+<meta property="og:url" content="https://directorio-pr-sitio.vercel.app/">
+<meta property="og:image" content="https://directorio-pr-sitio.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Directorio Gobierno de Puerto Rico: buscador de agencias, trámites y municipios">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Directorio Gobierno de Puerto Rico">
+<meta name="twitter:description" content="Todos los portales del gobierno y los 78 municipios en un solo buscador. Sitio independiente, no oficial.">
+<meta name="twitter:image" content="https://directorio-pr-sitio.vercel.app/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Directorio Gobierno de Puerto Rico",
+  "alternateName": "Directorio PR",
+  "url": "https://directorio-pr-sitio.vercel.app/",
+  "inLanguage": "es-PR",
+  "description": "Directorio independiente con búsqueda de agencias, servicios y los 78 municipios de Puerto Rico.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://directorio-pr-sitio.vercel.app/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 <style>
 :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); color-scheme: light; }
 body { margin: 0; }
@@ -115,6 +149,8 @@ button { font-family: inherit; }
 .hbtn[aria-pressed="true"] { background: var(--header-ink); color: var(--header); }
 h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(28px, 4.4vw, 44px); line-height: 1.05; margin: 6px 0 0; text-wrap: balance; letter-spacing: -.01em; }
 .lede { margin: 0; color: var(--header-muted); max-width: 60ch; }
+.disclaimer { margin: 4px 0 0; font-size: 13px; color: var(--header-muted); max-width: 70ch; display: flex; gap: 6px; align-items: baseline; }
+.disclaimer::before { content: "i"; flex: none; font: 600 11px var(--f-mono); width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--header-chipline); display: inline-grid; place-items: center; transform: translateY(2px); }
 
 .searchbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--header); border-bottom: 1px solid var(--header-chip); }
 .searchbar .wrap { padding-block: 10px 16px; }
@@ -243,7 +279,7 @@ mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1
           <polygon points="0,0 17,10 0,20" fill="#0050f0"/>
           <polygon points="5.5,7.6 6.2,9.6 8.3,9.6 6.6,10.9 7.2,12.9 5.5,11.7 3.8,12.9 4.4,10.9 2.7,9.6 4.8,9.6" fill="#ffffff"/>
         </svg>
-        Gobierno de Puerto Rico
+        Directorio independiente · No oficial
       </div>
       <div class="tools">
         <div class="swatches" id="swatches" role="group" aria-label="Colores">
@@ -254,6 +290,7 @@ mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1
     </div>
     <h1>Directorio del Gobierno de Puerto Rico</h1>
     <p class="lede">Agencias, servicios y portales oficiales en una sola página. Busca por nombre, sigla o trámite.</p>
+    <p class="disclaimer">Sitio independiente, no afiliado al Gobierno de Puerto Rico. Los trámites se hacen en el portal de cada agencia.</p>
   </div>
 </header>
 
@@ -288,7 +325,8 @@ mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1
     <div class="status" id="status" aria-live="polite"></div>
     <div class="regions" id="regions" role="group" aria-label="Regiones" hidden></div>
     <div id="results"></div>
-    <p class="note">Los enlaces apuntan a los dominios oficiales conocidos de cada entidad. Si encuentras uno roto, avísanos por el buzón de sugerencias. · <a href="/admin">Administración</a></p>
+    <p class="note"><strong>Aviso:</strong> este directorio es un proyecto independiente. No está afiliado, patrocinado ni avalado por el Gobierno de Puerto Rico ni por ninguna de sus agencias o municipios. Los nombres y enlaces se usan solo para orientar; para trámites oficiales visita <a href="https://www.pr.gov" target="_blank" rel="noopener">pr.gov</a> o el portal de cada entidad.</p>
+    <p class="note">Los enlaces apuntan a los dominios oficiales conocidos de cada entidad. Si encuentras uno roto, avísanos por el buzón de sugerencias. · <a href="https://github.com/jpadilla4/directorio-gobierno-pr" target="_blank" rel="noopener">Código en GitHub</a> · <a href="/admin">Administración</a></p>
   </main>
 </div>
 
@@ -484,6 +522,8 @@ $("#sugForm").addEventListener("submit", async (e) => {
 });
 
 /* ---------- Datos ---------- */
+// Permite enlazar una búsqueda: /?q=licencia
+try { const q0 = new URLSearchParams(location.search).get("q"); if (q0) $("#q").value = q0.slice(0, 100); } catch {}
 render();
 (async () => {
   for (const src of ["/api/enlaces", "/data/enlaces-iniciales.json"]) {

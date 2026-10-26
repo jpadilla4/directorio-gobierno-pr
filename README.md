@@ -54,6 +54,10 @@ npx vercel env pull .env.local
 npx vercel dev
 ```
 
+## Aviso
+
+Este es un proyecto independiente. No está afiliado, patrocinado ni avalado por el Gobierno de Puerto Rico ni por ninguna de sus agencias o municipios.
+
 ## Fuentes
 
 Los enlaces de los municipios llevan a su portal oficial cuando existe uno verificado. Si no, llevan a su ficha en el [directorio de municipios de pr.gov](https://pr.gov/gobierno-2/directorio-municipios).
